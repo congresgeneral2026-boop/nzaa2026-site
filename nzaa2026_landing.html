@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Congrès Général ACEEB – NZA' 2026 | Bamendou</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ===== VARIABLES ===== */
+  :root {
+    --gold:        #C9A84C;
+    --gold-light:  #F0D080;
+    --gold-dark:   #8B6914;
+    --deep:        #0A0A0B;
+    --dark1:       #121214;
+    --dark2:       #1A1A1E;
+    --dark3:       #242428;
+    --cream:       #F5EDD6;
+    --text-muted:  #9A8A6A;
+    --red-accent:  #8B2020;
+  }
+
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== TEXTURE OVERLAY ===== */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ===== GOLD LINE ===== */
+  .gold-line {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+  }
+  .gold-line.left { margin: 1.5rem 0; }
+
+  /* ===== SECTION WRAPPER ===== */
+  section { position: relative; z-index: 1; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    0%,100% { opacity: 0.6; } 50% { opacity: 1; }
+  }
+  @keyframes starPulse {
+    0%,100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50%      { transform: scale(1.3) rotate(180deg); opacity: 1; }
+  }
+  @keyframes borderGlow {
+    0%,100% { box-shadow: 0 0 15px rgba(201,168,76,0.3); }
+    50%      { box-shadow: 0 0 35px rgba(201,168,76,0.6); }
+  }
+
+  /* ============================================================
+     HERO SECTION
+  ============================================================ */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 30%, rgba(201,168,76,0.12) 0%, transparent 70%),
+      linear-gradient(180deg, #0A0A0B 0%, #13120D 50%, #0A0A0B 100%);
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+  }
+
+  /* Decorative pattern background */
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(201,168,76,0.025) 0px, rgba(201,168,76,0.025) 1px,
+      transparent 1px, transparent 40px
+    );
+    pointer-events: none;
+  }
+
+  /* Star / spark top */
+  #hero::after {
+    content: '✦';
+    position: absolute; top: 12%; left: 50%; transform: translateX(-50%);
+    font-size: 1.5rem; color: var(--gold);
+    animation: starPulse 3s ease-in-out infinite;
+  }
+
+  .hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+  .hero-parrainage {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.85;
+    animation: fadeUp 0.6s ease both;
+    line-height: 1.8;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: inline-block; padding: 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-edition {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-dark);
+    animation: fadeUp 0.7s ease both;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title-main {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 900;
+    line-height: 0.85;
+    color: var(--gold);
+    text-shadow:
+      0 0 40px rgba(201,168,76,0.5),
+      0 0 80px rgba(201,168,76,0.2);
+    animation: fadeUp 0.8s ease both, shimmer 4s ease-in-out infinite 1s;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle-year {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    animation: fadeUp 0.9s ease both;
+    text-shadow: 0 0 60px rgba(240,208,128,0.3);
+  }
+
+  .hero-68 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem; color: var(--gold-dark);
+    letter-spacing: 0.2em;
+    animation: fadeUp 1s ease both;
+    margin-top: 0.5rem;
+  }
+
+  .hero-theme-box {
+    margin: 2.5rem auto;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-top: 2px solid var(--gold);
+    background: rgba(201,168,76,0.06);
+    padding: 1.2rem 2rem;
+    max-width: 680px;
+    animation: fadeUp 1.1s ease both;
+  }
+  .hero-theme-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-dark); margin-bottom: 0.5rem;
+  }
+  .hero-theme-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--gold-light);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .hero-slogan {
+    font-style: italic;
+    color: var(--cream); opacity: 0.75;
+    font-size: 1rem;
+    animation: fadeUp 1.2s ease both;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Info chips */
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: center;
+    animation: fadeUp 1.3s ease both;
+    margin-bottom: 2.5rem;
+  }
+  .hero-chip {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.35);
+    padding: 0.6rem 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem; letter-spacing: 0.1em;
+    color: var(--gold-light);
+  }
+  .hero-chip-icon { font-size: 1.1rem; }
+
+  /* CTA buttons */
+  .hero-cta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: center;
+    animation: fadeUp 1.4s ease both;
+  }
+  .btn-gold {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    color: var(--deep); border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    animation: borderGlow 3s ease-in-out infinite;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  }
+  .btn-outline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--gold); border: 1px solid var(--gold);
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.1);
+    transform: translateY(-2px);
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    font-size: 1.5rem; color: var(--gold); opacity: 0.5;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* ============================================================
+     SECTION TITLE PATTERN
+  ============================================================ */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold-dark); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark));
+  }
+  .section-label::after {
+    background: linear-gradient(90deg, var(--gold-dark), transparent);
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700; color: var(--gold-light);
+    line-height: 1.2; margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  /* ============================================================
+     VISION / INTRO
+  ============================================================ */
+  #vision {
+    background: var(--dark1);
+    padding: 6rem 0;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .vision-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    margin-top: 3rem;
+  }
+  .vision-text p {
+    color: rgba(245,237,214,0.82);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+  .vision-text strong { color: var(--gold); }
+
+  .vision-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-top: 2px solid var(--gold);
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .stat-card:hover { transform: translateY(-4px); }
+  .stat-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem; font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(201,168,76,0.4);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.5rem; line-height: 1.4;
+  }
+
+  /* ============================================================
+     PROJET SCOLAIRE
+  ============================================================ */
+  #projet {
+    background: var(--dark2);
+    padding: 6rem 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .projet-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+    margin-top: 3rem;
+  }
+  .projet-visual {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .projet-visual::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .school-icon {
+    font-size: 5rem; margin-bottom: 1rem;
+    filter: drop-shadow(0 0 15px rgba(201,168,76,0.4));
+  }
+  .school-caption {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem; color: var(--gold);
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+  }
+
+  .projet-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem; color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .projet-content p {
+    color: rgba(245,237,214,0.8);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  /* Budget table */
+  .budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+  }
+  .budget-table th {
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    padding: 0.8rem 1rem;
+    text-align: left; letter-spacing: 0.1em;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .budget-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    color: var(--cream);
+  }
+  .budget-table tr:last-child td {
+    background: rgba(201,168,76,0.1);
+    color: var(--gold-light); font-weight: 700;
+    border-top: 1px solid rgba(201,168,76,0.4);
+  }
+
+  /* ============================================================
+     PROGRAMME / TEMPS FORTS
+  ============================================================ */
+  #programme {
+    background: var(--dark1);
+    padding: 6rem 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .programme-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .prog-card {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .prog-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-3px);
+  }
+  .prog-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .prog-card:hover::after { opacity: 1; }
+
+  .prog-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .prog-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; color: var(--gold);
+    letter-spacing: 0.1em; margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+  .prog-list {
+    list-style: none;
+    color: rgba(245,237,214,0.75);
+    font-size: 0.95rem;
+  }
+  .prog-list li { padding: 0.25rem 0; }
+  .prog-list li::before { content: '✦ '; color: var(--gold-dark); font-size: 0.6rem; }
+
+  /* ============================================================
+     SPONSORING
+  ============================================================ */
+  #sponsoring {
+    background: var(--dark2);
+    padding: 6rem 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .sponsor-intro {
+    max-width: 720px; margin: 0 auto 3rem;
+    text-align: center;
+    color: rgba(245,237,214,0.8);
+    font-size: 1.05rem;
+  }
+  .formules-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .formule-card {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .formule-card:hover { transform: translateY(-5px); }
+  .formule-card.platinum {
+    border-color: rgba(201,168,76,0.5);
+    background: linear-gradient(180deg, rgba(201,168,76,0.08) 0%, var(--dark3) 100%);
+  }
+  .formule-card.platinum::before {
+    content: '★ PLATINUM ★';
+    position: absolute; top: 0; left: 0; right: 0;
+    background: var(--gold);
+    color: var(--deep);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    padding: 0.35rem;
+    font-weight: 700;
+  }
+  .formule-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  .formule-price {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.4rem; color: var(--gold-light);
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+  .formule-price span { font-size: 0.8rem; display: block; color: var(--text-muted); }
+  .formule-divider {
+    height: 1px; background: rgba(201,168,76,0.2);
+    margin: 1rem 0;
+  }
+  .formule-benefits {
+    list-style: none;
+    text-align: left; font-size: 0.88rem;
+    color: rgba(245,237,214,0.75);
+  }
+  .formule-benefits li { padding: 0.3rem 0; }
+  .formule-benefits li::before { content: '✦ '; color: var(--gold-dark); font-size: 0.6rem; }
+
+  .formule-tech {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-top: 2px solid var(--gold-dark);
+    padding: 1.8rem 2rem;
+    display: flex; align-items: center; gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .formule-tech-icon { font-size: 2.5rem; flex-shrink: 0; }
+  .formule-tech h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold); font-size: 1rem; margin-bottom: 0.4rem;
+  }
+  .formule-tech p { color: rgba(245,237,214,0.7); font-size: 0.9rem; }
+
+  /* Transparence callout */
+  .transparence-box {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+  }
+  .transparence-box p {
+    color: rgba(245,237,214,0.85);
+    font-size: 0.95rem;
+  }
+  .transparence-box strong { color: var(--gold); }
+
+  /* ============================================================
+     PRESSE / MEDIA
+  ============================================================ */
+  #presse {
+    background: var(--dark1);
+    padding: 5rem 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .presse-inner {
+    display: flex; gap: 3rem; align-items: center;
+    margin-top: 2.5rem;
+  }
+  .presse-text { flex: 1; }
+  .presse-text p { color: rgba(245,237,214,0.8); margin-bottom: 1rem; }
+  .presse-benefits {
+    list-style: none; margin: 1.5rem 0;
+  }
+  .presse-benefits li {
+    padding: 0.4rem 0;
+    color: rgba(245,237,214,0.75);
+    font-size: 0.95rem;
+  }
+  .presse-benefits li::before { content: '✦ '; color: var(--gold-dark); }
+  .presse-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+
+  /* ============================================================
+     CONTACT / FOOTER
+  ============================================================ */
+  #contact {
+    background: var(--deep);
+    padding: 5rem 0 3rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-top: 3rem;
+  }
+  .contact-block h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold); font-size: 1rem; letter-spacing: 0.15em;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    color: rgba(245,237,214,0.8);
+    font-size: 0.95rem;
+  }
+  .contact-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+
+  .socials {
+    display: flex; flex-wrap: wrap; gap: 0.8rem;
+    margin-top: 1rem;
+  }
+  .social-pill {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.05);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .social-pill:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin-top: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    color: var(--text-muted);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 768px) {
+    .vision-grid, .projet-inner, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .programme-grid { grid-template-columns: 1fr; }
+    .formules-grid { grid-template-columns: 1fr; }
+    .presse-inner { flex-direction: column; }
+    .vision-stats { grid-template-columns: 1fr 1fr; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .formule-tech { flex-direction: column; gap: 1rem; }
+  }
+  @media (max-width: 480px) {
+    .vision-stats { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 : HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-inner">
+
+    <div class="hero-parrainage" style="animation-delay:0.1s">
+      SOUS LE HAUT PARRAINAGE DU CHEF SUPÉRIEUR<br>
+      ROI DES BAMENDOU
+    </div>
+
+    <div class="hero-edition" style="animation-delay:0.2s">LE CONGRÈS GÉNÉRAL DE BAMENDOU</div>
+
+    <div class="hero-title-main" style="animation-delay:0.3s">NZA'</div>
+    <div class="hero-subtitle-year" style="animation-delay:0.4s">2026</div>
+    <div class="hero-68" style="animation-delay:0.5s">68<sup>e</sup> ÉDITION</div>
+
+    <div class="hero-theme-box" style="animation-delay:0.6s">
+      <div class="hero-theme-label">Thème officiel</div>
+      <div class="hero-theme-text">
+        « Développement local et dynamique des réseaux sociaux »
+      </div>
+    </div>
+
+    <p class="hero-slogan" style="animation-delay:0.7s">
+      « Ensemble connectés pour bâtir Bamendou »<br>
+      <em>Bamendou entre héritage ancestral et révolution digitale</em>
+    </p>
+
+    <div class="hero-meta" style="animation-delay:0.8s">
+      <div class="hero-chip">
+        <span class="hero-chip-icon">📅</span>
+        Samedi 08 Août 2026
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-icon">📍</span>
+        École Anglophone des Parents de Tetoh
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-icon">🗺️</span>
+        Secteur Nza' – Groupement Bamendou
+      </div>
+    </div>
+
+    <div class="hero-cta" style="animation-delay:0.9s">
+      <a href="#projet" class="btn-gold">🎯 Contribuer au projet</a>
+      <a href="#sponsoring" class="btn-outline">🤝 Devenir Sponsor</a>
+    </div>
+
+  </div>
+  <div class="scroll-hint">⌄</div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 : VISION & CHIFFRES CLÉS
+============================================================ -->
+<section id="vision">
+  <div class="container">
+    <div class="section-label">À propos</div>
+    <h2 class="section-title">Unir la Tradition et le Numérique<br>pour Bamendou</h2>
+    <div class="gold-line"></div>
+
+    <div class="vision-grid">
+      <div class="vision-text">
+        <p>
+          Le <strong>Congrès Général de l'ACEEB Bamendou</strong> est le plus grand rassemblement
+          communautaire, éducatif, culturel et social de notre groupement. Organisé chaque année dans
+          l'un des secteurs du groupement, ce congrès constitue un véritable levier de cohésion sociale,
+          de valorisation culturelle et de développement local.
+        </p>
+        <p>
+          L'édition <strong>2026, portée par le secteur Nza'</strong>, intervient dans un contexte marqué
+          par la montée en puissance des réseaux sociaux et du numérique dans la vie communautaire,
+          l'implication croissante de la diaspora, et le besoin de moderniser nos mécanismes de gouvernance.
+        </p>
+        <p>
+          NZA' 2026 ambitionne de devenir <strong>un modèle moderne de mobilisation communautaire</strong>
+          alliant tradition, jeunesse, numérique et développement durable.
+        </p>
+      </div>
+
+      <div class="vision-stats">
+        <div class="stat-card">
+          <div class="stat-number">+2 000</div>
+          <div class="stat-label">Participants attendus<br>(élites, diaspora, jeunes, autorités)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">04</div>
+          <div class="stat-label">Salles de classe<br>à construire</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">68<sup style="font-size:1.2rem">e</sup></div>
+          <div class="stat-label">Édition du<br>Congrès Général</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">01</div>
+          <div class="stat-label">Mini foire<br>socio-culturelle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 : PROJET PHARE – BLOC SCOLAIRE
+============================================================ -->
+<section id="projet">
+  <div class="container">
+    <div class="section-label">Objectif majeur</div>
+    <h2 class="section-title">Bâtir l'Avenir Éducatif de Tetoh</h2>
+    <div class="gold-line"></div>
+
+    <div class="projet-inner">
+
+      <div class="projet-visual">
+        <div class="school-icon">🏫</div>
+        <div class="school-caption">
+          École Anglophone des Parents de Tetoh<br>
+          <strong style="color:var(--gold-light)">Bloc de 04 salles de classe</strong><br>
+          à construire ensemble
+        </div>
+        <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.2);">
+          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.2em; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.5rem;">Secteur Nza' — Penka-Michel — Cameroun</div>
+        </div>
+      </div>
+
+      <div class="projet-content">
+        <h3>Notre défi communautaire concret</h3>
+        <p>
+          Parce que le développement durable commence sur les bancs de l'école, le Congrès NZA' 2026
+          s'engage sur un projet éducatif majeur : le financement et la construction complète d'un bâtiment
+          moderne de <strong>4 salles de classe</strong> pour les enfants de l'École Anglophone des Parents de Tetoh.
+        </p>
+        <p>
+          Ce projet illustre parfaitement la vision du congrès : mobiliser toutes les forces vives de Bamendou
+          — élites, diaspora, jeunes — autour d'une action concrète et visible pour les générations futures.
+        </p>
+
+        <table class="budget-table">
+          <thead>
+            <tr>
+              <th>Rubriques</th>
+              <th>Montants</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organisation mini foire socio-culturelle</td>
+              <td>13 440 000 FCFA</td>
+            </tr>
+            <tr>
+              <td>Construction du bloc de 04 salles de classe</td>
+              <td>14 991 400 FCFA</td>
+            </tr>
+            <tr>
+              <td><strong>TOTAL GÉNÉRAL PROVISOIRE</strong></td>
+              <td><strong>28 431 400 FCFA</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a href="#contact" class="btn-gold" style="margin-top:0.5rem; display:inline-block;">
+          💛 Soutenir ce projet
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 : PROGRAMME DES ACTIVITÉS
+============================================================ -->
+<section id="programme">
+  <div class="container">
+    <div class="section-label">Le programme</div>
+    <h2 class="section-title">Les Temps Forts du Congrès</h2>
+    <div class="gold-line"></div>
+
+    <div class="programme-grid">
+      <div class="prog-card">
+        <div class="prog-icon">🏛️</div>
+        <div class="prog-title">Activités Institutionnelles</div>
+        <ul class="prog-list">
+          <li>Cérémonie officielle d'ouverture</li>
+          <li>Allocutions des autorités administratives & traditionnelles</li>
+          <li>Rencontres stratégiques des élites</li>
+          <li>Débats thématiques & conférences</li>
+          <li>Sessions de networking communautaire</li>
+        </ul>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon">🎨</div>
+        <div class="prog-title">Activités Culturelles</div>
+        <ul class="prog-list">
+          <li>Grande mini foire socio-culturelle</li>
+          <li>Spectacles de danses traditionnelles</li>
+          <li>Ballets & prestations artistiques</li>
+          <li>Expositions du patrimoine Bamendou</li>
+          <li>Animations & célébrations culturelles</li>
+        </ul>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon">🏆</div>
+        <div class="prog-title">Activités Sportives</div>
+        <ul class="prog-list">
+          <li>Tournoi de football</li>
+          <li>Tournoi de handball</li>
+          <li>Cross-country communautaire</li>
+          <li>Grande marche sportive citoyenne</li>
+        </ul>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-icon">🤝</div>
+        <div class="prog-title">Activités Sociales & Éducatives</div>
+        <ul class="prog-list">
+          <li>Consultations médicales gratuites</li>
+          <li>Distribution de bourses d'excellence scolaire</li>
+          <li>Distinctions honorifiques</li>
+          <li>Ateliers d'accompagnement de la jeunesse</li>
+          <li>Sensibilisation & actions communautaires</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 : SPONSORING
+============================================================ -->
+<section id="sponsoring">
+  <div class="container">
+    <div class="section-label">Partenariat</div>
+    <h2 class="section-title">Associez votre Image à l'Impact Communautaire</h2>
+    <div class="gold-line"></div>
+
+    <p class="sponsor-intro">
+      Le Congrès NZA' 2026 offre une opportunité unique aux entreprises et institutions de positionner
+      leur marque auprès d'une cible influente, économiquement active, et d'une diaspora connectée à
+      l'échelle nationale et internationale.
+    </p>
+
+    <div class="formules-grid">
+
+      <div class="formule-card platinum">
+        <div class="formule-name">Sponsor Platinum</div>
+        <div class="formule-price">
+          5 000 000 FCFA
+          <span>et plus</span>
+        </div>
+        <div class="formule-divider"></div>
+        <ul class="formule-benefits">
+          <li>Visibilité premium maximale</li>
+          <li>Branding majeur de l'ensemble du site</li>
+          <li>Stand premium de 25 m²</li>
+          <li>Temps de parole officiels en cérémonie</li>
+          <li>Présence médiatique renforcée</li>
+          <li>Invitations VIP & protocole</li>
+        </ul>
+      </div>
+
+      <div class="formule-card">
+        <div class="formule-name" style="margin-top:0;">Sponsor Gold</div>
+        <div class="formule-price">
+          2 000 000 FCFA
+          <span>et plus</span>
+        </div>
+        <div class="formule-divider"></div>
+        <ul class="formule-benefits">
+          <li>Logo sur les supports principaux</li>
+          <li>Stand partenaire de 15 m²</li>
+          <li>Forte visibilité digitale</li>
+          <li>Invitations d'honneur espaces VIP</li>
+          <li>Mentions partenaires campagnes</li>
+        </ul>
+      </div>
+
+      <div class="formule-card">
+        <div class="formule-name" style="margin-top:0;">Sponsor Silver</div>
+        <div class="formule-price">
+          500 000 FCFA
+          <span>et plus</span>
+        </div>
+        <div class="formule-divider"></div>
+        <ul class="formule-benefits">
+          <li>Présence logo sur les affichages</li>
+          <li>Communication digitale continue</li>
+          <li>Visibilité sur le site de l'événement</li>
+          <li>Stand partenaire de 10 m²</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="formule-tech">
+      <div class="formule-tech-icon">⚙️</div>
+      <div>
+        <h4>Partenaire Technique — Apport en nature</h4>
+        <p>
+          Soutien opérationnel : logistique, matériel technique, solutions de communication,
+          restauration, sécurité, prestations médias. Toute contribution en nature est valorisée
+          et officiellement reconnue lors des cérémonies.
+        </p>
+      </div>
+    </div>
+
+    <div class="transparence-box">
+      🔒 <strong>Garantie de Transparence</strong> — Une <em>Cellule de Gouvernance et Transparence</em>
+      spécifique est mise en place pour assurer le suivi rigoureux des contributions,
+      le contrôle strict des dépenses et un reporting mensuel public des états financiers.
+      Votre investissement est tracé, valorisé et communiqué officiellement.
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="#contact" class="btn-gold">📄 Demander le Dossier Sponsoring complet</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 : PRESSE & MÉDIAS
+============================================================ -->
+<section id="presse">
+  <div class="container">
+    <div class="section-label">Espace Presse</div>
+    <h2 class="section-title">Médias & Accréditations</h2>
+    <div class="gold-line"></div>
+
+    <div class="presse-inner">
+      <div class="presse-text">
+        <p>
+          Le Comité Technique d'Organisation invite l'ensemble des médias traditionnels, journalistes
+          et créateurs de contenus digitaux à accompagner cette initiative à fort impact social et culturel.
+        </p>
+        <p>
+          Les médias officiellement partenaires bénéficieront de conditions d'accueil optimales et d'une
+          visibilité institutionnelle tout au long de l'événement.
+        </p>
+        <ul class="presse-benefits">
+          <li>Accès privilégié à l'ensemble de l'événement</li>
+          <li>Espaces dédiés pour interviews exclusives</li>
+          <li>Accès complet aux zones VIP et protocolaires</li>
+          <li>Visibilité sur les supports officiels du congrès</li>
+          <li>Matériel presse fourni (communiqués, dossiers)</li>
+          <li>Retransmission live et contenus médias</li>
+        </ul>
+        <div class="presse-cta">
+          <a href="mailto:cto_nzaa2026@gmail.com" class="btn-gold">📰 Demander une accréditation</a>
+          <a href="mailto:cto_nzaa2026@gmail.com" class="btn-outline">📥 Communiqué officiel</a>
+        </div>
+      </div>
+
+      <div style="flex:1;">
+        <div style="background:var(--dark2); border:1px solid rgba(201,168,76,0.2); padding:2rem; border-top:2px solid var(--gold);">
+          <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.15em; margin-bottom:1.2rem; text-transform:uppercase;">
+            Canaux de communication
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">📘 Facebook</div>
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">💬 WhatsApp</div>
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">🎵 TikTok</div>
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">▶️ YouTube</div>
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">💼 LinkedIn</div>
+            <div style="background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:0.8rem; text-align:center; font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">📡 Telegram</div>
+          </div>
+          <div style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(201,168,76,0.15); font-size:0.85rem; color:rgba(245,237,214,0.6); font-style:italic;">
+            Radios locales · Presse écrite · Affichage terrain · Caravanes de sensibilisation
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 : CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Restons Connectés</h2>
+    <div class="gold-line"></div>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3>Secrétariat du CTO – NZA' 2026</h3>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span>(+237) 696 769 622 / 652 061 631 / 674 979 756 / 693 533 148</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <span>cto_nzaa2026@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>Secteur Nza' – Groupement Bamendou<br>Arrondissement de Penka-Michel – Ouest-Cameroun</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="mailto:cto_nzaa2026@gmail.com" class="btn-gold">✉️ Nous contacter</a>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <h3>Suivez l'actualité NZA' 2026</h3>
+        <p style="color:rgba(245,237,214,0.7); font-size:0.95rem; margin-bottom:1rem;">
+          Rejoignez nos canaux officiels pour suivre les préparatifs, les actualités et l'avancement
+          du chantier de construction en temps réel.
+        </p>
+        <div class="socials">
+          <div class="social-pill">📘 Facebook</div>
+          <div class="social-pill">💬 WhatsApp</div>
+          <div class="social-pill">💼 LinkedIn</div>
+          <div class="social-pill">🎵 TikTok</div>
+          <div class="social-pill">▶️ YouTube</div>
+        </div>
+        <div style="margin-top:2rem; background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.2); padding:1.2rem;">
+          <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:0.5rem;">POUR LE COMITÉ TECHNIQUE D'ORGANISATION</div>
+          <div style="color:rgba(245,237,214,0.6); font-size:0.9rem;">Le Président &nbsp;&nbsp;|&nbsp;&nbsp; Le Secrétaire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>✦ &nbsp; © 2026 CONGRÈS GÉNÉRAL ACEEB NZA' – TOUS DROITS RÉSERVÉS &nbsp; ✦</div>
+  <div style="margin-top:0.5rem; opacity:0.6; letter-spacing:0.1em;">
+    Organisé par le Comité Technique d'Organisation NZA' 2026<br>
+    sous la haute supervision de la Chefferie Bamendou, des élites locales et de la diaspora
+  </div>
+</footer>
+
+</body>
+</html>
